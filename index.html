@@ -1,24 +1,160 @@
 <!DOCTYPE html>
-<html lang="ja" class="none">
+<html lang="ja">
   
  <head>
 <link rel="stylesheet" type="text/css" href="hdhp.css">
 </head>
 <body>
 <header>
- <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" width="1000" height="400" class="img01">
+ <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" width="50%" height="400" class="img01">
  <div class="b1">
 <h1><font size="20">提携事務所HD</font></h1>
-
- </div>
-   </header>
-
 <div class"img1">
-<img src="https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png" alt="HDteikei" width="100" height="100">
+<img src="https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png" alt="HDteikei" width="150" height="150">
  </div>
-<div class="home">
-
+<div class="b01">
+  <ul class="nav-list">
+      <li class="nav-list-item">
+        <a href=”index.html”>ホーム</a>
+      </li>
+      <li class="nav-list-item"><a href="gaiyou.html">事務所概要</a></li>
+      <li class="nav-list-item"><a href=”jiji.html”>時事・予定</a></li>
+    </ul>
   </div>
+
+ </div>
+
+<div>
+<img src="img/hertaa1.webp" class="preload">
+<img src="img/hertaa2.webp" class="preload">
+<div id="content">
+<h1>-------暇人用------</h1>
+<hr id="subtitle-seperator">
+<h2>
+くるくるロボットを生成します
+</h2>
+<div id="counter-container">
+<p>The kuru~ has been squished</p>
+<br>
+<br>
+<p id="counter">74</p>
+<br>
+<br>
+<p id="counter-times">times</p>
+<button id="counter-button" onclick="if (!window.__cfRLUnblockHandlers) return false; counterClick()">
+くるくる～!
+</button>
+</div>
+<hr>
+<div id="grid">
+<noscript>Your browser does not support JavaScript or JavaScript has been
+                disabled.<br />This website relies on JavaScript, so please enable it
+                or use another browser.</noscript>
+</div>
+</div>
+
+<script type="text/javascript">
+    //varible
+    var audioList = [
+        new Audio("audio/kuruto.mp3"),
+        new Audio("audio/kuru1.mp3"),
+        new Audio("audio/kuru2.mp3"),
+    ];
+
+    for (const audio of audioList) {
+        audio.preload = "auto";
+    }
+
+    var firstSquish = true;
+    //end varible
+
+    if (!localStorage.getItem("count")) {
+        localStorage.setItem("count", 0);
+    }
+
+    let temporaryCounter = parseInt(localStorage.getItem("count"));
+    const counterElement = document.getElementById("counter");
+    const counterTimesElement = document.getElementById("counter-times");
+    
+    displayCounter(temporaryCounter);
+
+    //counter button
+    function counterClick() {
+        ++temporaryCounter;
+        displayCounter(temporaryCounter);
+        localStorage.setItem("count", temporaryCounter);
+
+        playKuru();
+        animateHerta();
+    }
+    
+    function displayCounter(value) {
+        counterElement.innerText = value.toLocaleString();
+        counterTimesElement.innerText = value === 1 ? "time" : "times";
+    }
+
+    function playKuru() {
+        var audio;
+
+        if (firstSquish) {
+            firstSquish = false;
+            audio = audioList[0].cloneNode();
+        } else {
+            var random = Math.floor(Math.random() * 2) + 1;
+            audio = audioList[random].cloneNode();
+        }
+
+        audio.play();
+
+        audio.addEventListener("ended", function () {
+            this.remove();
+        });
+    }
+
+    function animateHerta() {
+        var counter_button = document.getElementById("counter-button");
+        var id = null;
+
+        var random = Math.floor(Math.random() * 2) + 1;
+        var elem = document.createElement("img");
+        elem.src = `img/hertaa${random}.webp`;
+        elem.style.position = "absolute";
+        elem.style.right = "-510px";
+        elem.style.top = counter_button.getClientRects()[0].bottom + scrollY - 430 + "px"
+        elem.style.zIndex = "-1";
+        document.body.appendChild(elem);
+
+        var pos = -510;
+        var limit = window.innerWidth + 510;
+        clearInterval(id);
+        id = setInterval(frame, 12);
+        function frame() {
+            if (pos >= limit) {
+                clearInterval(id);
+                elem.remove()
+            } else {
+                pos += 20;
+                elem.style.right = pos + 'px';
+            }
+        }
+    }
+    //end counter button
+</script>
+<script type="text/javascript">
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then((registration) => {
+        console.log('Service Worker registered:', registration);
+      })
+      .catch((error) => {
+        console.log('Service Worker registration failed:', error);
+      });
+  }
+</script>
+
+
+<deepl-input-controller></deepl-input-controller><div id="UMS_TOOLTIP" style="position: absolute; cursor: pointer; z-index: 2147483647; background: transparent; top: -100000px; left: -100000px;"></div><div id="trend_notification_app" class="trend_notification_app_outer"><div id="trend_notification"><div id="trend_notification_con"></div></div></div>
+
 
  <!----フッターヘッダーはいじるな DO NOT TOUCH footer and header---->
  
@@ -27,6 +163,7 @@
 <div class="b2">
 <h1><s>i think that is paper-company ;< </s></h1>
  <h1><font size="6">Thanks for went to this site!</h1>
+  <p>writed by かねく</p>
  </div>
 <div>
 
