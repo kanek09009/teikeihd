@@ -3,17 +3,18 @@ body {
    background: #4b4b4b;
 }
 .img1 {
- argin-right: 50;
+ text-align: right;
 }
 .b1 {
   background: #758492;
   color: #5AFF19;
   text-align: center;
   scale: 1;
+
 }
 
 footer {
-width: 100%;
+width: 99%;
 height: 200px;
 position: absolute;
 bottom: -999999999999999999999;
@@ -26,15 +27,163 @@ font-size: 7px;
 background: #ffffff
 }
 header {
-
+width: 99%;
+height: auto;
 }
-.img01 {
+header .img01  {
   border-radius: 30px;
-　text-align: center;
- 
+  position:relative;
+ left:500px;
+  }
+  .b01{
+line-height: 100px;
+    font-size: 30px;
+   background: #758492;
+  color: #5AFF19;
+      
+    }
+.nav-list {
+    line-height: 100px;
+    list-style: none;
+    font-weight: bold;
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
 }
 
+/*ヘルタシステム*/ 
 
-.home {
-background: #4b4b4b;
+.preload {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden
 }
+#content {
+    margin: 2vh auto;
+    width: 80vw
+}
+hr {
+    border-bottom: 6px dashed #fff;
+    border-top: none;
+    border-left: none;
+    border-right: none
+}
+#counter-button {
+    background-color: #574f84;
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: roboto,sans-serif;
+    font-weight: 700;
+    margin-top: 16px
+  }
+@media screen and (max-width: 2240px) {
+    .grid-item {
+        width:calc(20% - 10px)
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .grid-item {
+        width:calc(25% - 10px)
+    }
+}
+
+@media screen and (max-width: 1512px) {
+    body {
+        font-size:1.25em
+    }
+
+    #subtitle-seperator {
+        margin-top: 3px;
+        margin-bottom: 11px
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .grid-item {
+        width:calc(100%/3 - 10px)
+    }
+
+    #footer {
+        flex-wrap: wrap
+    }
+
+    #footer-text {
+        text-align: center
+    }
+
+    #footer-header-text {
+        margin-bottom: 8px
+    }
+
+    #footer-repository-text {
+        margin-top: 16px;
+        margin-bottom: 8px
+    }
+}
+
+@media screen and (max-width: 1265px) {
+    body {
+        font-size:1em
+    }
+
+    #subtitle-seperator {
+        margin-top: 6px;
+        margin-bottom: 12px
+    }
+}
+
+@media screen and (max-width: 854px) {
+    .grid-item {
+        width:calc(50% - 10px)
+    }
+}
+
+@media screen and (max-width: 510px) {
+    h1 {
+        font-size:2.5em
+    }
+
+    h2 {
+        font-size: 1.25em
+    }
+
+    #subtitle-seperator {
+        margin-top: 8px;
+        margin-bottom: 13px
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .grid-item {
+        width:calc(100% - 10px)
+    }
+}
+
+@media screen and (max-width: 430px) {
+    h1 {
+        font-size:2em
+    }
+
+    #subtitle-seperator {
+        margin-top: 10px
+    }
+}
+#herta-card {
+    min-width: 256px;
+    max-width: 720px;
+    height: auto;
+    border-top-left-radius: 2% 3.5%;
+    border-top-right-radius: 2% 3.5%;
+    border-bottom-left-radius: 2% 3.5%;
+    border-bottom-right-radius: 2% 3.5%
+}
+#counter-button:hover {
+  background-color: #2d2463 }
