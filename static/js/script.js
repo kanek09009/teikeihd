@@ -8,10 +8,8 @@ var LANGUAGES = {
             "audio/en/en_3.mp3"
         ],
         texts: {
-            "page-title": "Welcome to herta kuru~",
-            "doc-title": "Kuru Kuru~",
-            "page-descriptions": "The website for Herta, the <del>annoying</del> cutest genius Honkai: Star Rail character out there.",
-            "counter-descriptions": ["The kuru~ has been squished for", "Herta has been kuru~ed for"],
+            "page-title": "暇人用",
+            "doc-title": "くるくるヘルタを生成します",
             "counter-unit": "times",
             "counter-button": ["Squish the kuru~!", "Kuru kuru~!"],
             "access-via-pages": "You're currently accessing via GitHub Pages. For users in China (Mainland) or some other regions, click <a href='https://herta.ft2.ltd/'>here to access the mirror on Netlify</a>. ",
