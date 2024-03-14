@@ -77,14 +77,14 @@ margin: 0 70px 1px;
 
 }
 .square1 {
- width: 50%;
-  height: 430px;
+ width: 80%;
+  height: 11%;
   background: #ffffff;
-margin: 50px 0 0 60px;
+margin: 4% 0 0 7%;
 box-shadow: 2px 10px 10px gray;
 }
 .square1 h2 {
-font-size: 50px;
+font-size: 400%;
 margin: 0 100px 0;
 letter-spacing: 6 px;
 }
@@ -97,19 +97,19 @@ margin: 0 5px 0;
 }
 .square1 a1 {
 font-family: Yu Mincho;
-font-size: 27px;
-margin: 10px;
+font-size: 185%;
+margin: 4%;
 }
 .square2 {
-width: 45%;
-  height: 1700px;
+width: 70%;
+  height: 53%;
   background: #ffffff;
-margin: -40px 0 0 900px;
+margin: 3% 0 0 10%;
 box-shadow: 2px 18px 10px gray;
 }
 .square2 h2 {
-font-size: 60px;
-margin: 0 0 0 350px;
+font-size: 400%;
+margin: 0 0 0 40%;
 letter-spacing: 6 px;
 }
 .square2 hr {
@@ -117,17 +117,27 @@ height: 3px;
 width: 70%;
 border: none;
 background: linear-gradient(to left, white, black, white);;
-margin: 0 0 0 100px;
+margin: 0 0 0 13%;
 }
 .square2 a1 {
 font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
-font-size: 50px;
-margin: 0 0 0 1em;
+font-size: 370%;
+margin: 0 0 0 20%;
+line-height: 180%;
 }
 .square2 a2 {
 font-family: Yu Mincho, "游明朝";
 font-size: 60px;
 margin: 0 0 0 1em;
+}
+.square2 a8 {
+font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
+font-size: 370%;
+margin: 0 0 0 20%;
+line-height: 180%;
+background-image: url(https://illust-stock.com/wp-content/uploads/background-kirakira-gold.png);
+background-size: 120%;
+background-repeat: no-repeat;
 }
 .square2 a3 {
 font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
