@@ -101,10 +101,10 @@ font-size: 185%;
 margin: 4%;
 }
 .square2 {
-width: 87%;
+width: 77%;
   height: 62%;
   background: #ffffff;
-margin: 6% 0 0 1%;
+margin: 6% 0 4% 0;
 box-shadow: 2px 18px 10px gray;
 }
 .square2 h2 {
