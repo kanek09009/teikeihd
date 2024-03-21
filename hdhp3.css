@@ -156,17 +156,28 @@ margin: 4% 0 0 3%;
 box-shadow: 2px 10px 10px gray;
 }
 .ani1 {
- clip-path: inset(0 100% 0 0);
-  display: inline-block;
-  font-size: 300%;
-  font-weight: bold;
-  transition: 1.4s cubic-bezier(0.37, 0, 0.63, 1);
-  transition-property: clip-path;
-  line-height: 1;
-  height: 40%;
-  margin-top: 4%;
-  margin-left: 10%;
+font-size: 400%;
+color: #ffff;
+font-weight: bold;
+margin-left: 10%;
+background: linear-gradient(to right, #362ae0 0%,#3b79cc 50%,#42d3ed 100%);
+max-width: 20%;
+ border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
 }
-.ani1.is-animated {
-  clip-path: inset(0);
+.ani1.zoomin.is-animated {
+  animation: zoomIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+ 
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
