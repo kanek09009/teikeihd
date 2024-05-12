@@ -145,3 +145,35 @@ font-size: 60px;
 margin: 0 0 0 3em;
 color: red;
 }
+.square2 a5 {
+font-family: 'Cherry Swash', cursive;
+font-size: 60px;
+margin: 0 0 0 3em;
+}
+.gradient {
+  &__wrap {
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    animation: AnimationTitle 5s ease infinite;
+    background: linear-gradient(to right, #FFFFFF, #0000FF, #000080);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    
+    font-size: 100px;
+    font-weight: 600;
+    line-height: 1;
+  }
+}
+@keyframes AnimationTitle {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
