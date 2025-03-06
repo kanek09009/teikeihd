@@ -166,3 +166,22 @@ line-height: 100px;
 }
 #counter-button:hover {
   background-color: #2d2463 }
+  
+  .falling-object {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url("https://github.com/kanek09009/teikeihd/blob/main/static/img/hertaa1.gif?raw=true"); /* ここを画像にする場合はbackground-imageを設定 */
+    border-radius: 50%;
+    top: 0;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    from {
+        top: 0;
+    }
+    to {
+        top: 100vh;
+    }
+}
