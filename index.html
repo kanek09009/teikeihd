@@ -34,36 +34,77 @@
   <button id="dropButton">暇人用</button>
 <div id="container" style="position: relative; width: 100%; height: 100vh; overflow: hidden;"></div>
 
+   <input type="text" id="passwordInput" placeholder="パスワード">
+<button id="submitButton">launch</button>
+<p id="countdown"></p>
         </main>
        
     <script>
      document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("dropButton");
     const container = document.getElementById("container");
-
-    console.log(button, container); // デバッグ用
-
-    if (!button || !container) {
-        console.error("ボタンまたはコンテナが見つかりません");
-        return;
-    }
-
+    const input = document.getElementById("passwordInput");
+    const countdownDisplay = document.getElementById("countdown");
+    const correctPassword = "sample";
+    
+    countdownDisplay.style.position = "absolute";
+    countdownDisplay.style.bottom = "-70%";
+    countdownDisplay.style.left = "25%";
+    countdownDisplay.style.transform = "translate(-25%, -25%)";
+    countdownDisplay.style.textAlign = "center";
+    countdownDisplay.style.width = "100%";
+    
     button.addEventListener("click", () => {
         const object = document.createElement("div");
         object.classList.add("falling-object");
-
+        
         // ランダムな位置に配置
         const startX = Math.random() * (container.clientWidth - 50);
         object.style.left = `${startX}px`;
-
+        
         container.appendChild(object);
-
+        
         // アニメーション後に要素を削除
         object.addEventListener("animationend", () => {
             object.remove();
         });
     });
+
+    document.getElementById("submitButton").addEventListener("click", () => {
+        if (input.value === correctPassword) {
+            let countdown = 10;
+            countdownDisplay.textContent = countdown;
+            countdownDisplay.style.color = "black";
+            countdownDisplay.style.fontSize = "45px";
+            
+            const interval = setInterval(() => {
+                countdown--;
+                countdownDisplay.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    countdownDisplay.textContent = "💥ミサイル発射!💥";
+                    countdownDisplay.style.color = "red";
+                    countdownDisplay.style.fontSize = "40px";
+                    countdownDisplay.style.animation = "explode 0.5s ease-in-out infinite alternate";
+                }
+            }, 1000);
+        } else {
+            countdownDisplay.textContent = "ちがいます";
+        }
+    });
 });
+
+// CSSアニメーションを追加
+document.head.insertAdjacentHTML("beforeend", `
+<style>
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0.5; }
+}
+</style>
+`);
+
 
     </script>
     <!-- Google tag (gtag.js) -->
