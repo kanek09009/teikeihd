@@ -1,6 +1,7 @@
 body {
   font-family: system-ui;
    background: #4b4b4b;
+  width: 100%; overflow-x: hidden;
 }
 .b1 {
   background: #758492;
@@ -42,7 +43,7 @@ header .img01 {
 
 /* 画像のスタイル */
 header .img01 img {
-  max-width: 80%;
+  max-width: 70%;
   height: auto;
   display: block;
 }
@@ -50,7 +51,7 @@ header .img01 img {
 /* スマホサイズの調整 */
 @media (max-width: 768px) {
   header .img01 img {
-    max-width: 90%;
+    max-width: 70%;
   }
 }
   .b01{
