@@ -67,7 +67,6 @@ header .img01 img {
 
   .square1, .square2 {
     width: 90%; /* 画面幅に合わせる */
-    margin: 5% auto;
     padding: 20px;
     background-color: #ffffff; /* 白背景 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 優しい影を追加 */
@@ -76,8 +75,6 @@ header .img01 img {
 
   .square1 h2, .square2 h2 {
     font-size: 5vw; /* 見出しのフォントサイズも調整 */
-    text-align: center;
-    margin-bottom: 10px;
   }
 
   .nav-list-item {
@@ -131,4 +128,7 @@ color: red;
   border: none;
   background: linear-gradient(to right, black, white);
   margin: 0 5px;
+}
+.g1 hr {
+  background-color: #5AFF19;
 }
