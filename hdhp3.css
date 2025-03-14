@@ -36,7 +36,7 @@ header .img01  {
   position:relative;
   }
 @media (max-width: 768px) { /* スマホサイズ（768px以下）の場合 */
-  header .img01 img {
+  header .img01 {
     max-width: 90%; /* 画面幅の90%以内に制限 */
   }
 }
