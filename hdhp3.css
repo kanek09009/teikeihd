@@ -34,7 +34,6 @@ height: auto;
 header .img01  {
   border-radius: 30px;
   position:relative;
- left:500px;
   }
 @media (max-width: 768px) { /* スマホサイズ（768px以下）の場合 */
   header .img01 img {
