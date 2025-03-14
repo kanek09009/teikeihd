@@ -59,14 +59,25 @@ header .img01 img {
   display: inline-block;
   margin: 0 20px;
 }
-
+.g1 hr {
+  background-color: #5AFF19;
+}
 .g1 h1 {
   font-family: Yu Mincho;
   font-weight: bold;
   font-size: 40px;
   text-align: center;
+  color: white;
 }
 
+.g1 p1 {
+  font-family: Yu Mincho;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 20px 1px;
+  color: white;
+}
 .g1 p {
   font-family: Yu Mincho;
   font-weight: bolder;
