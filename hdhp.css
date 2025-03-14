@@ -24,26 +24,33 @@ font-size: 7px;
 background: #ffffff
 }
 header {
-width: 99%;
-height: auto;
+  width: 100%; /* 100%にすることで、余計なはみ出しを防ぐ */
+  height: auto;
+  box-sizing: border-box; /* paddingやborderを含めてもはみ出さないように */
+  overflow: hidden; /* 念のため、はみ出しを防ぐ */
 }
+
+/* 画像の親要素 */
 header .img01 {
   border-radius: 30px;
-  display: flex; /* 中央寄せ */
-  justify-content: center; /* 水平方向に中央配置 */
-  align-items: center; /* 垂直方向の中央揃え（念のため） */
-  width: 100%; /* 親要素の幅を100%に固定 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden; /* 画像のはみ出し防止 */
 }
 
+/* 画像のスタイル */
 header .img01 img {
-  max-width: 80%; /* 画面幅の80%以内に制限 */
-  height: auto; /* アスペクト比を維持 */
-  display: block; /* 余計な余白をなくす */
+  max-width: 80%;
+  height: auto;
+  display: block;
 }
 
-@media (max-width: 768px) { /* スマホサイズ（768px以下）の場合 */
+/* スマホサイズの調整 */
+@media (max-width: 768px) {
   header .img01 img {
-    max-width: 90%; /* スマホでは90%に拡大 */
+    max-width: 90%;
   }
 }
   .b01{
