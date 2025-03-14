@@ -30,142 +30,14 @@ height: auto;
 header .img01  {
   border-radius: 30px;
   position: relative;
-  left: 10%;
+  left: 40%;
   }
-  .b01{
-line-height: 100px;
-    font-size: 30px;
-   background: #758492;
-  color: #5AFF19;
-      
-    }
-.nav-list {
-    line-height: 100px;
-    list-style: none;
-    font-weight: bold;
-}
-.nav-list-item {
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-}
-
-/*ヘルタシステム*/ 
-
-.falling-object {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url(https://i.gyazo.com/23c02112e888f1681ec6661acb764e9e.png);
-    background-size: cover;
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    animation: fall 3s linear forwards;
-}
-
-@keyframes fall {
-    from {
-        top: 0;
-    }
-    to {
-        top: calc(100vh - 50px);
-    }
-}
-#dropButton {
-    background: linear-gradient(135deg, #7B1FA2, #9C27B0, #BA68C8);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 12px rgba(124, 77, 255, 0.4);
-    outline: none;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* ボタンを押したときのエフェクト */
-#dropButton::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, rgba(255, 255, 255, 0) 50%);
-    transition: all 0.6s ease-out;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-}
-
-#dropButton:active::before {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-}
-
-/* ホバー時のエフェクト */
-#dropButton:hover {
-    background: linear-gradient(135deg, #BA68C8, #9C27B0, #7B1FA2);
-    transform: scale(1.08);
-    box-shadow: 0px 6px 18px rgba(124, 77, 255, 0.6);
-}
-
-/* クリック時の縮小アニメーション */
-#dropButton:active {
-    transform: scale(0.95);
-    box-shadow: 0px 2px 8px rgba(124, 77, 255, 0.3);
-}
-.ome {
-  max-width: 80%; /* 画面幅の80%以内に制限 */
-  height: auto; /* アスペクト比を維持 */
-  position: relative;
-}
 @media (max-width: 768px) { /* スマホサイズ（768px以下）の場合 */
-  .ome img {
+  header .img01 img {
     max-width: 90%; /* 画面幅の90%以内に制限 */
     left: 5%; /* 左の余白を調整 */
   }
-}body {
-  font-family: system-ui;
-   background: #4b4b4b;
 }
-.b1 {
-  background: #758492;
-  color: #5AFF19;
-  text-align: center;
-  scale: 1;
-
-}
-
-footer {
-width: 99%;
-height: 200px;
-position: absolute;
-bottom: -999999999999999999999;
-background: #ffffff
- 
-}
-.b2{
-font-family: serif;
-font-size: 7px;
-background: #ffffff
-}
-header {
-width: 99%;
-height: auto;
-}
-header .img01  {
-  border-radius: 30px;
-  position: relative;
-  left: 10%;
-  }
   .b01{
 line-height: 100px;
     font-size: 30px;
