@@ -29,24 +29,18 @@ height: auto;
 }
 header .img01 {
   border-radius: 30px;
-  position: relative;
-  left: 40%;
+  display: flex; /* 中央寄せのためにflexboxを使用 */
+  justify-content: center; /* 中央寄せ */
 }
 
 header .img01 img {
-  max-width: 100%; /* 親要素の幅を超えないようにする */
+  max-width: 80%; /* 画面幅の80%以内に制限 */
   height: auto; /* 縦横比を維持 */
-  display: block; /* 余計な余白を防ぐ */
 }
 
 @media (max-width: 768px) { /* スマホサイズ（768px以下）の場合 */
-  header .img01 {
-    left: 0; /* 左寄せをリセット */
-    text-align: center; /* 画像を中央寄せ */
-  }
-
   header .img01 img {
-    max-width: 90%; /* 画面幅の90%以内に制限 */
+    max-width: 90%; /* スマホではもう少し大きく */
   }
 }
   .b01{
