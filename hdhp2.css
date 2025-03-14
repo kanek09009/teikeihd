@@ -39,7 +39,6 @@ header .img01  {
 @media (max-width: 768px) { /* スマホサイズ（768px以下）の場合 */
   header .img01 img {
     max-width: 90%; /* 画面幅の90%以内に制限 */
-    left: 5%; /* 左の余白を調整 */
   }
 }
   .b01{
