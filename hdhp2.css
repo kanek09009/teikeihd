@@ -53,128 +53,82 @@ header .img01 img {
     max-width: 70%;
   }
 }
-  .b01{
-line-height: 100px;
-    font-size: 30px;
-   background: #758492;
-  color: #5AFF19;
-      
-    }
-.nav-list {
-    line-height: 100px;
-    list-style: none;
-    font-weight: bold;
-}
-.nav-list-item {
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-}
-.g1 h1 {
- font-family: Yu Mincho;
-   font-weight: bold;
-font-size: 90px;
-text-align: center;
+@media (max-width: 768px) {
+  .g1 h1 {
+    font-size: 60px; /* ビューポート幅に基づいたフォントサイズ */
+    color: white;
+  }
 
-}
-.g1 {
-background: #c8c8c8;
-width: 100%;
-height: 4000px
-}
-.g1 hr {
-background: linear-gradient(#4cffff, #5AFF19);
-}
-.g1 p {
-font-family: Yu Mincho;
-font-weight: bolder;
-text-align: center;
-font-size: 20px;
-margin: 0 70px 1px;
+  .g1 p {
+    font-size: 5vw; /* 文字サイズを画面幅に合わせる */
+    margin: 0 10px;
+    color: white;
+  }
 
-}
-.square1 {
- width: 90%;
-  height: 15%;
-  background: #ffffff;
-margin: 4% 0 0 7%;
-box-shadow: 2px 10px 10px gray;
-}
-.square1 h2 {
-font-size: 400%;
-margin: 0 100px 0;
-letter-spacing: 6 px;
-}
-.square1 hr {
-height: 3px;
-width: 70%;
-border: none;
-background: linear-gradient(to right, black, white);;
-margin: 0 5px 0;
-}
-.square1 a1 {
-font-family: Yu Mincho;
-font-size: 185%;
-margin: 4%;
-}
-.square2 {
-width: 77%;
-  height: 62%;
-  background: #ffffff;
-margin: 6% 0 0 7%;
-box-shadow: 2px 18px 10px gray;
-}
-.square2 h2 {
-font-size: 400%;
-margin: 0 0 0 40%;
-letter-spacing: 6 px;
-}
-.square2 hr {
-height: 3px;
-width: 70%;
-border: none;
-background: linear-gradient(to left, white, black, white);;
-margin: 0 0 0 13%;
-}
-.square2 a1 {
-font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
-font-size: 370%;
-margin: 0 0 0 20%;
-line-height: 180%;
-}
-.square2 a2 {
-font-family: Yu Mincho, "游明朝";
-font-size: 60px;
-margin: 0 0 0 1em;
-}
-.square2 a8 {
-font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
-font-size: 370%;
-margin: 0 0 0 20%;
+  .square1, .square2 {
+    width: 90%; /* 画面幅に合わせる */
+    margin: 5% auto;
+    padding: 20px;
+    background-color: #ffffff; /* 白背景 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 優しい影を追加 */
+    border-radius: 8px; /* 角を丸くして柔らかい印象に */
+  }
+
+  .square1 h2, .square2 h2 {
+    font-size: 5vw; /* 見出しのフォントサイズも調整 */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .nav-list-item {
+    display: block; /* スマホでは縦並びにする */
+    margin: 10px 0;
+  }
+
+  .square2 a1 {
+    font-size: 4vw; /* スマホで読みやすい大きさに調整 */
+    line-height: 150%;
+    font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
+font-size: 30px;
+  }
+  .square2 a8 {
+    font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
+font-size: 30px;
 line-height: 180%;
 background-image: url(https://illust-stock.com/wp-content/uploads/background-kirakira-gold.png);
 background-size: 120%;
 background-repeat: no-repeat;
-}
-.square2 a3 {
+  }
+  .square2 a3 {
 font-family: HiraKakuProN-W3, HiraMinProN-W6, Verdana;
-font-size: 60px;
+font-size: 20px;
 margin: 0 0 0 3em;
 color: red;
 }
-.square2 a5 {
-font-size: 60px;
-margin: 0 0 0 3em;
-font-family: 'Cherry Swash', cursive;
-}
-.ttxt{
-    font-size: 72px;
-    font-weight: bold;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(45deg, #000080 0%, #EEEEEE 33%, #0000FF 66%);
-    display: inline-block;
+  footer {
+    font-size: 3vw;
+  }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
+/* デスクトップ向け（デフォルト）スタイル */
+.square1, .square2 {
+  background-color: #ffffff; /* 白背景 */
+  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.1); /* 優しい影を追加 */
+  border-radius: 8px; /* 角を丸く */
+  padding: 30px;
+  margin: 3% 7%;
+}
+
+.square1 h2, .square2 h2 {
+  font-size: 400%;
+  text-align: center;
+  letter-spacing: 6px;
+}
+
+.square1 hr, .square2 hr {
+  height: 3px;
+  width: 70%;
+  border: none;
+  background: linear-gradient(to right, black, white);
+  margin: 0 5px;
+}
