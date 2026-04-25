@@ -3,16 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>提携事務所HD - Modernized</title>
-    <link rel="stylesheet" href="style.css">
+    <title>提携事務所HD - Dark Mode</title>
+    <style>
+        /* --- CSS: Discord風ダークスタイル設定 --- */
+        :root {
+            /* Discordのカラーパレットをベースに設定 */
+            --bg-main: #313338;       /* メイン背景 (Discord背景) */
+            --bg-secondary: #2b2d31;  /* サイドバー・ヘッダー背景 */
+            --bg-tertiary: #1e1f22;   /* さらに深い背景 */
+            --text-normal: #dbdee1;   /* 標準テキスト */
+            --text-muted: #949ba4;    /* 補助テキスト */
+            --accent-color: #5865f2;  /* Discordブルー */
+            --card-bg: #383a40;       /* カード背景 */
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.3);
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-normal);
+            background-color: var(--bg-main);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* メインビジュアルエリア */
+        .main-visual {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: var(--bg-tertiary);
+        }
+
+        .main-logo {
+            width: 33%;
+            min-width: 250px;
+            max-width: 500px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* ロゴを浮かせる */
+            transition: var(--transition);
+        }
+
+        /* ヘッダー・ナビゲーション */
+        header {
+            background-color: var(--bg-secondary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--white);
+        }
+
+        /* スマホ用バーガーメニュー */
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-normal);
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: 60px 0;
+        }
+
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-banner img {
+            max-width: 180px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .hero-banner h1 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-banner p {
+            color: var(--text-muted);
+        }
+
+        /* カードデザイン */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: #404249; /* 少し明るくする */
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            opacity: 0.9; /* 目に優しい明るさ調整 */
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 24px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px; /* Discord風の少し角ばった丸み */
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #4752c4;
+            box-shadow: 0 4px 10px rgba(88, 101, 242, 0.3);
+        }
+
+        /* メッセージエリア */
+        .message-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .accent-quote {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .thanks-msg {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* フッター */
+        footer {
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* レスポンシブ設定 */
+        @media screen and (max-width: 768px) {
+            .main-logo {
+                width: 60%;
+            }
+
+            .nav-links {
+                position: fixed;
+                right: 0px;
+                height: 100vh;
+                top: 0;
+                background-color: var(--bg-tertiary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 70%;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -10px 0 20px rgba(0,0,0,0.5);
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .burger {
+                display: block;
+                position: absolute;
+                right: 20px;
+                z-index: 1001;
+            }
+
+            .nav-active {
+                transform: translateX(0%);
+            }
+
+            .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .toggle .line2 { opacity: 0; }
+            .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+        }
+    </style>
 </head>
 <body>
+
+    <div class="main-visual">
+        <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" alt="提携事務所HD ロゴ" class="main-logo">
+    </div>
+
     <header>
         <div class="container header-inner">
-            <div class="logo">
-                <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" alt="Logo" class="logo-img">
-                <span class="site-title">提携事務所HD</span>
-            </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">ホーム</a></li>
@@ -29,39 +286,29 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container hero-content">
-                <img src="https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png" alt="HDteikei" class="hero-image">
-                <div class="hero-text">
-                    <h1>提携事務所ホールディングス</h1>
-                    <p class="tagline">新たな価値を創造する、次世代のネットワーク。</p>
-                </div>
-            </div>
-        </section>
+        <div class="container">
+            <section class="hero-banner">
+                <img src="https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png" alt="HDteikei">
+                <h1>提携事務所ホールディングス</h1>
+                <p>よりスマートに、より効率的なネットワークを構築します。</p>
+            </section>
 
-        <section class="featured">
-            <div class="container">
-                <div class="card-grid">
-                    <div class="card">
-                        <img src="https://niceillust.com/wp-content/uploads/2022/04/nyugakuomedeto_001-2-1024x720.png" alt="Featured">
-                        <div class="card-body">
-                            <h3>暇人用コンテンツ</h3>
-                            <p>リラックスして楽しめる、ちょっとした情報をお届けします。</p>
-                            <a href="#" class="btn">詳しく見る</a>
-                        </div>
+            <section class="card-grid">
+                <div class="card">
+                    <img src="https://niceillust.com/wp-content/uploads/2022/04/nyugakuomedeto_001-2-1024x720.png" alt="Content">
+                    <div class="card-body">
+                        <h3>暇人用コンテンツ</h3>
+                        <p>退屈な時間をクリエイティブな刺激に変える、選りすぐりの情報を掲載しています。</p>
+                        <a href="#" class="btn">閲覧する</a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="message">
-            <div class="container">
-                <blockquote class="accent-text">
-                    "I think that is paper-company ;<"
-                </blockquote>
+            <section class="message-section">
+                <p class="accent-quote">~~ i think that is paper-company ;< ~~</p>
                 <p class="thanks-msg">Thanks for coming to this site!</p>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -70,6 +317,27 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // スマホメニューの制御
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                burger.classList.toggle('toggle');
+            });
+
+            // メニュー外タップで閉じる処理（UX向上）
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !burger.contains(e.target) && nav.classList.contains('nav-active')) {
+                    nav.classList.remove('nav-active');
+                    burger.classList.remove('toggle');
+                }
+            });
+        }
+
+        navSlide();
+    </script>
 </body>
 </html>
