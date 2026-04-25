@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>提携事務所HD</title>
+    <title>提携事務所HD - Premium Edition</title>
     <style>
         :root {
             --bg-main: #313338;
@@ -16,7 +16,6 @@
             --neon-purple: #9d50bb;
             --white: #ffffff;
             --shadow: 0 4px 15px rgba(0,0,0,0.5);
-            --transition: all 0.25s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,125 +39,71 @@
             display: inline-block;
             height: 320px;
             border-radius: 30px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.6), 0 0 15px rgba(88, 101, 242, 0.2);
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
             overflow: hidden;
             background-color: #000;
-            transition: var(--transition);
         }
 
         .main-logo { width: 100%; height: 100%; object-fit: contain; }
 
-        /* --- キャッチコピー --- */
-        .hero-banner {
-            text-align: center;
-            padding: 60px 0;
-            perspective: 1000px;
-        }
-
-        .hero-banner h1 {
-            color: var(--white);
-            font-size: 3rem;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-        }
-
-        .catchphrase-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .catch-line {
-            display: block;
-            font-size: 4.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-blue));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
-            white-space: nowrap;
-            animation: shineText 3s linear infinite;
-        }
-
-        @keyframes shineText {
-            to { background-position: 200% center; }
-        }
-
-        .slide-left {
-            animation: bounceInLeft 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, pulseGlow 2s infinite alternate 1.5s;
-        }
-
-        .slide-right {
-            animation: bounceInRight 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, pulseGlow 2s infinite alternate 1.5s;
-        }
-
-        @keyframes bounceInLeft {
-            0% { transform: translateX(-200%) scale(0.5); opacity: 0; }
-            60% { transform: translateX(20%) scale(1.1); }
-            100% { transform: translateX(0) scale(1); opacity: 1; }
-        }
-
-        @keyframes bounceInRight {
-            0% { transform: translateX(200%) scale(0.5); opacity: 0; }
-            60% { transform: translateX(-20%) scale(1.1); }
-            100% { transform: translateX(0) scale(1); opacity: 1; }
-        }
-
-        @keyframes pulseGlow {
-            from { filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4)); }
-            to { filter: drop-shadow(0 0 30px rgba(157, 80, 187, 0.8)) scale(1.05); }
-        }
-
-        /* --- ナビゲーション --- */
+        /* ヘッダー */
         header { background-color: var(--bg-secondary); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
         .header-inner { display: flex; justify-content: center; align-items: center; height: 70px; }
         .nav-links { display: flex; list-style: none; gap: 40px; }
         .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: bold; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--white); }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* キャッチコピー */
+        .hero-banner { text-align: center; padding: 60px 0; }
+        .hero-banner h1 { color: var(--white); font-size: 3rem; margin-bottom: 40px; }
+        
+        .catchphrase-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .catch-line {
+            display: block; font-size: 4.5rem; font-weight: 900;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-blue));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
+            animation: shineText 3s linear infinite;
+        }
+
+        @keyframes shineText { to { background-position: 200% center; } }
+
+        .slide-left { animation: bounceInLeft 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+        .slide-right { animation: bounceInRight 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+
+        @keyframes bounceInLeft { 0% { transform: translateX(-200%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+        @keyframes bounceInRight { 0% { transform: translateX(200%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+
+        /* ギミックボタン */
         .gimmick-section { padding: 80px 0; text-align: center; }
         .bored-btn {
-            padding: 20px 50px; background: var(--accent-color); color: white;
-            border: none; border-radius: 12px; font-size: 1.5rem; font-weight: bold; cursor: pointer;
-            transition: 0.3s;
+            padding: 25px 60px; background: var(--accent-color); color: white;
+            border: none; border-radius: 15px; font-size: 1.8rem; font-weight: bold; cursor: pointer;
+            box-shadow: 0 10px 0 #3e48cc; transition: 0.1s;
         }
-        .bored-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4); }
+        .bored-btn:active { transform: translateY(5px); box-shadow: 0 5px 0 #3e48cc; }
 
-        footer { background: var(--bg-tertiary); padding: 50px 0; text-align: center; color: var(--text-muted); }
-
-        /* --- キャラクター横移動ギミックのCSS --- */
-        .moving-character {
+        /* キャラクター移動アニメーション */
+        .herta-char {
             position: fixed;
-            bottom: 10%;
-            right: -200px; /* 画面外からスタート */
-            width: 150px;
-            height: 150px;
+            bottom: 5%;
+            right: -300px;
+            width: 250px;
             z-index: 9999;
-            pointer-events: none; /* クリックを邪魔しない */
-            animation: moveAcross 2s linear forwards;
+            pointer-events: none;
+            animation: hertaMove 1.8s linear forwards;
         }
 
-        @keyframes moveAcross {
-            0% {
-                right: -200px;
-                transform: rotate(0deg);
-            }
-            100% {
-                right: calc(100% + 200px); /* 画面左端まで突き抜ける */
-                transform: rotate(-720deg); /* 2回転させる */
-            }
+        @keyframes hertaMove {
+            0% { right: -300px; transform: rotate(0deg); }
+            100% { right: 100%; transform: rotate(-720deg); }
         }
 
-        @media screen and (max-width: 768px) {
-            .catch-line { font-size: 2.2rem; }
-            .hero-banner h1 { font-size: 2rem; }
-            .logo-mask { height: 200px; }
-        }
+        footer { background: var(--bg-tertiary); padding: 40px 0; text-align: center; color: var(--text-muted); }
+
+        @media screen and (max-width: 768px) { .catch-line { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
@@ -170,7 +115,7 @@
     </div>
 
     <header>
-        <div class="container header-inner">
+        <div class="header-inner">
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">ホーム</a></li>
@@ -182,21 +127,17 @@
     </header>
 
     <main>
-        <div class="container">
-            <section class="hero-banner">
-                <img src="https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png" alt="HDteikei" style="max-width: 150px; margin-bottom: 20px;">
-                <h1>提携事務所HD</h1>
-                
-                <div class="catchphrase-container">
-                    <span class="catch-line slide-left">先に築こう。</span>
-                    <span class="catch-line slide-right">時代の最先端。</span>
-                </div>
-            </section>
-
-            <section class="gimmick-section">
-                <button class="bored-btn" id="boredBtn">Anyone wants a prise</button>
-            </section>
+        <div class="hero-banner">
+            <h1>提携事務所HD</h1>
+            <div class="catchphrase-container">
+                <span class="catch-line slide-left">先に築こう。</span>
+                <span class="catch-line slide-right">時代の最先端。</span>
+            </div>
         </div>
+
+        <section class="gimmick-section">
+            <button class="bored-btn" id="hertaBtn">Anyone wants a prise</button>
+        </section>
     </main>
 
     <footer>
@@ -204,27 +145,32 @@
     </footer>
 
     <script>
-        // キャラクター横移動ギミックのJavaScript
-        const boredBtn = document.getElementById('boredBtn');
-        const characterImgUrl = "https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png"; // キャラクターに使用する画像
+        const hertaBtn = document.getElementById('hertaBtn');
+        const characterImg = "https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png";
+        
+        // 音声ファイルの準備 (GitHub上の公開ソースを利用)
+        const audioPaths = [
+            "https://raw.githubusercontent.com/Duiqt/herta_kuru/main/public/audio/kuruto.mp3",
+            "https://raw.githubusercontent.com/Duiqt/herta_kuru/main/public/audio/kuru1.mp3"
+        ];
 
-        boredBtn.addEventListener('click', function() {
-            // 新しい画像要素を作成
-            const character = document.createElement('img');
-            character.src = characterImgUrl;
-            character.className = 'moving-character';
-            
-            // ランダムな高さに出現させる（下から5%〜40%の間）
-            const randomBottom = Math.floor(Math.random() * 35) + 5;
-            character.style.bottom = randomBottom + '%';
+        hertaBtn.addEventListener('click', () => {
+            // 1. キャラクターを生成
+            const char = document.createElement('img');
+            char.src = characterImg;
+            char.className = 'herta-char';
+            char.style.bottom = (Math.random() * 30 + 5) + '%';
+            document.body.appendChild(char);
 
-            // 画面に追加
-            document.body.appendChild(character);
+            // 2. 音声をランダムに再生
+            const randomAudio = new Audio(audioPaths[Math.floor(Math.random() * audioPaths.length)]);
+            randomAudio.play();
+          const audioPaths = [
+    se/01.mp3
+];
 
-            // アニメーション終了後に要素を削除
-            character.addEventListener('animationend', function() {
-                character.remove();
-            });
+            // 3. アニメーション終了後に削除
+            char.addEventListener('animationend', () => char.remove());
         });
     </script>
 </body>
