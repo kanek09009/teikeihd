@@ -3,294 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>提携事務所HD - Modernized Logo</title>
+    <title>提携事務所HD</title>
     <style>
-        /* --- CSS: Discord風ダークスタイル + モダンロゴ用 --- */
         :root {
             --bg-main: #313338;
             --bg-secondary: #2b2d31;
             --bg-tertiary: #1e1f22;
             --text-normal: #dbdee1;
             --text-muted: #949ba4;
-            --accent-color: #5865f2; /* Discordブルー */
-            --accent-hover: #4752c4;
-            --card-bg: #383a40;
+            --accent-color: #5865f2; 
+            --neon-blue: #00d2ff;
+            --neon-purple: #9d50bb;
             --white: #ffffff;
-            --shadow: 0 4px 15px rgba(0,0,0,0.3);
+            --shadow: 0 4px 15px rgba(0,0,0,0.5);
             --transition: all 0.25s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.6;
-            color: var(--text-normal);
+            font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
             background-color: var(--bg-main);
+            color: var(--text-normal);
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* メインロゴエリア - モダン統合 */
+        /* ロゴセクション */
         .main-visual {
             text-align: center;
-            padding: 80px 20px; /* 余白を広げてモダンに */
-            background-color: var(--bg-tertiary);
-            position: relative;
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, #232529 0%, #1e1f22 100%);
         }
 
-        /* ロゴ画像のマスク処理とモダン化 */
         .logo-mask {
             display: inline-block;
-            /* 正方形に近い形でクリップ (ロゴの形に合わせて調整可) */
-            height: 300px;
-            /* 角丸 (モダンな雰囲気のコア) */
-            border-radius: 20px;
-            /* 内側の影で統合感を出す */
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), var(--shadow);
-            overflow: hidden; /* マスクの外側を隠す */
-            background-color: #000; /* ロゴの背景を黒に統一 */
+            height: 320px;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6), 0 0 15px rgba(88, 101, 242, 0.2);
+            overflow: hidden;
+            background-color: #000;
             transition: var(--transition);
         }
 
-        .main-logo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* アスペクト比を保ってマスク内に収める */
-            /* 必要に応じて明度や彩度を調整 (目が疲れないように) */
-            filter: brightness(0.9) contrast(1.1);
-        }
+        .main-logo { width: 100%; height: 100%; object-fit: contain; }
 
-        /* ロゴホバー時のエフェクト */
-        .logo-mask:hover {
-            transform: scale(1.02);
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 20px rgba(88, 101, 242, 0.4);
-        }
-
-        /* ヘッダー・ナビゲーション */
-        header {
-            background-color: var(--bg-secondary);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 60px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: bold;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            padding: 5px 0;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--white);
-        }
-
-        /* スマホ用バーガーメニュー */
-        .burger {
-            display: none;
-            cursor: pointer;
-        }
-
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-normal);
-            margin: 5px;
-            transition: var(--transition);
-        }
-
-        /* メインコンテンツ */
-        main {
-            padding: 60px 0;
-        }
-
+        /* --- 超巨大・大胆アニメーションキャッチコピー --- */
         .hero-banner {
             text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .hero-banner img {
-            max-width: 180px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 25px;
+            padding: 60px 0;
+            perspective: 1000px;
         }
 
         .hero-banner h1 {
             color: var(--white);
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
         }
 
-        .hero-banner p {
-            color: var(--text-muted);
-        }
-
-        /* ギミックエリア */
-        .gimmick-section {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .gimmick-container {
-            position: relative;
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 50px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255,255,255,0.05);
+        .catchphrase-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            min-height: 200px;
+            margin-top: 20px;
         }
 
+        .catch-line {
+            display: block;
+            font-size: 4.5rem; /* 極大サイズ */
+            font-weight: 900;
+            text-transform: uppercase;
+            /* ネオン・グラデーションカラー */
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-blue));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* 強い光彩 */
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
+            white-space: nowrap;
+            animation: shineText 3s linear infinite;
+        }
+
+        /* テキストのグラデーションが流れるアニメーション */
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        /* 強烈なスライドアニメーション */
+        .slide-left {
+            animation: bounceInLeft 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, pulseGlow 2s infinite alternate 1.5s;
+        }
+
+        .slide-right {
+            animation: bounceInRight 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, pulseGlow 2s infinite alternate 1.5s;
+        }
+
+        @keyframes bounceInLeft {
+            0% { transform: translateX(-200%) scale(0.5); opacity: 0; }
+            60% { transform: translateX(20%) scale(1.1); }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+
+        @keyframes bounceInRight {
+            0% { transform: translateX(200%) scale(0.5); opacity: 0; }
+            60% { transform: translateX(-20%) scale(1.1); }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+
+        /* 脈動する光のエフェクト */
+        @keyframes pulseGlow {
+            from { filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4)); }
+            to { filter: drop-shadow(0 0 30px rgba(157, 80, 187, 0.8)) scale(1.05); }
+        }
+
+        /* --- ナビゲーション等 (前回同様) --- */
+        header { background-color: var(--bg-secondary); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .header-inner { display: flex; justify-content: center; align-items: center; height: 70px; }
+        .nav-links { display: flex; list-style: none; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: bold; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .gimmick-section { padding: 80px 0; text-align: center; }
         .bored-btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--accent-color);
-            color: var(--white);
-            text-decoration: none;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 10;
+            padding: 20px 50px; background: var(--accent-color); color: white;
+            border: none; border-radius: 12px; font-size: 1.5rem; font-weight: bold; cursor: pointer;
+            transition: 0.3s;
         }
+        .bored-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4); }
 
-        .bored-btn:hover {
-            background-color: var(--accent-hover);
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-        }
+        footer { background: var(--bg-tertiary); padding: 50px 0; text-align: center; color: var(--text-muted); }
 
-        /* ギミック要素（動的） */
-        .gimmick-element {
-            position: absolute;
-            pointer-events: none;
-        }
-
-        /* コンフェッティ（紙吹雪） */
-        .confetti {
-            width: 10px;
-            height: 10px;
-            background-color: var(--accent-color);
-            opacity: 0.8;
-            border-radius: 20%;
-            animation: fall 3s ease-out forwards;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(300px) rotate(720deg); opacity: 0; }
-        }
-
-        /* バウンドボール */
-        .bouncing-ball {
-            width: 30px;
-            height: 30px;
-            background-color: #ff4757;
-            border-radius: 50%;
-            animation: bounce 1s infinite alternate cubic-bezier(0.5, 0.05, 1, 0.5);
-        }
-
-        @keyframes bounce {
-            from { transform: translate(0, 0); }
-            to { transform: translate(100px, 150px); }
-        }
-        
-        /* シークレットメッセージ */
-        .secret-message {
-            color: #2ed573;
-            font-weight: bold;
-            opacity: 0;
-            animation: fadeSecret 2s forwards;
-        }
-
-        @keyframes fadeSecret {
-            0% { opacity: 0; transform: scale(0.5); }
-            20% { opacity: 1; transform: scale(1.1); }
-            80% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: translateY(-20px); }
-        }
-
-        /* メッセージエリア */
-        .message-section {
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .accent-quote {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .thanks-msg {
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        /* フッター */
-        footer {
-            background: var(--bg-tertiary);
-            color: var(--text-muted);
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* レスポンシブ設定 */
+        /* スマホ対応 */
         @media screen and (max-width: 768px) {
-            .logo-mask { width: 80%; height: auto; aspect-ratio: 2/1; }
-            .main-visual { padding: 40px 10px; }
-            .nav-links {
-                position: fixed;
-                right: 0px; height: 100vh; top: 0;
-                background-color: var(--bg-tertiary);
-                flex-direction: column; align-items: center; justify-content: center;
-                width: 70%; transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                box-shadow: -10px 0 20px rgba(0,0,0,0.5);
-            }
-            .nav-links li { margin: 20px 0; }
-            .burger { display: block; position: absolute; right: 20px; z-index: 1001; }
-            .nav-active { transform: translateX(0%); }
-            .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-            .toggle .line2 { opacity: 0; }
-            .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+            .catch-line { font-size: 2.2rem; }
+            .hero-banner h1 { font-size: 2rem; }
+            .logo-mask { height: 200px; }
         }
     </style>
 </head>
@@ -298,7 +147,7 @@
 
     <div class="main-visual">
         <div class="logo-mask">
-            <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" alt="提携事務所HD ロゴ" class="main-logo">
+            <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" alt="ロゴ" class="main-logo">
         </div>
     </div>
 
@@ -310,11 +159,6 @@
                     <li><a href="gaiyou.html">事務所概要</a></li>
                     <li><a href="jiji.html">時事・予定</a></li>
                 </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
             </nav>
         </div>
     </header>
@@ -322,90 +166,28 @@
     <main>
         <div class="container">
             <section class="hero-banner">
-                <img src="https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png" alt="HDteikei">
+                <img src="https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png" alt="HDteikei" style="max-width: 150px; margin-bottom: 20px;">
                 <h1>提携事務所HD</h1>
-                <p>先に築こう。時代の最先端。</p>
+                
+                <div class="catchphrase-container">
+                    <span class="catch-line slide-left">先に築こう。</span>
+                    <span class="catch-line slide-right">時代の最先端。</span>
+                </div>
             </section>
 
             <section class="gimmick-section">
-                <div class="gimmick-container" id="gimmickArea">
-                    <button class="bored-btn" id="boredBtn">暇人用</button>
-                    </div>
-            </section>
-
-            <section class="message-section">
-                <del class="accent-quote">~~ i think that is a paper-company ;< ~~</del>
-                <p class="thanks-msg">Thanks for coming to this site!</p>
+                <button class="bored-btn" id="boredBtn">Anyone wants a prise</button>
             </section>
         </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Written by かねく</p>
-        </div>
+        <p>&copy; 2026 Written by かねく</p>
     </footer>
 
     <script>
-        // --- JS: スマホメニューの制御 ---
-        const navSlide = () => {
-            const burger = document.querySelector('.burger');
-            const nav = document.querySelector('.nav-links');
-            
-            burger.addEventListener('click', () => {
-                nav.classList.toggle('nav-active');
-                burger.classList.toggle('toggle');
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!nav.contains(e.target) && !burger.contains(e.target) && nav.classList.contains('nav-active')) {
-                    nav.classList.remove('nav-active');
-                    burger.classList.remove('toggle');
-                }
-            });
-        }
-        navSlide();
-
-        // --- JS: 暇人用ギミックの制御 ---
-        const gimmickArea = document.getElementById('gimmickArea');
-        const boredBtn = document.getElementById('boredBtn');
-
-        const gimmicks = [
-            // 1. 紙吹雪 (Confetti)
-            () => {
-                for (let i = 0; i < 30; i++) {
-                    const confetti = document.createElement('div');
-                    confetti.classList.add('gimmick-element', 'confetti');
-                    confetti.style.left = Math.random() * 100 + '%';
-                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`; // ランダム色
-                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
-                    gimmickArea.appendChild(confetti);
-                    setTimeout(() => confetti.remove(), 3000);
-                }
-            },
-            // 2. バウンドボール
-            () => {
-                const ball = document.createElement('div');
-                ball.classList.add('gimmick-element', 'bouncing-ball');
-                ball.style.left = (Math.random() * 50 + 25) + '%';
-                gimmickArea.appendChild(ball);
-                setTimeout(() => ball.remove(), 2000);
-            },
-            // 3. シークレットメッセージ
-            () => {
-                const messages = ["お疲れ様です！", "暇ですねぇ...", "クリックありがと", "★大当たり★"];
-                const msgEl = document.createElement('div');
-                msgEl.classList.add('gimmick-element', 'secret-message');
-                msgEl.textContent = messages[Math.floor(Math.random() * messages.length)];
-                gimmickArea.appendChild(msgEl);
-                setTimeout(() => msgEl.remove(), 2000);
-            }
-        ];
-
-        boredBtn.addEventListener('click', () => {
-            // ランダムにギミックを選択して実行
-            const randomIndex = Math.floor(Math.random() * gimmicks.length);
-            gimmicks[randomIndex]();
+        document.getElementById('boredBtn').addEventListener('click', function() {
+            alert('Welcome to the Future.');
         });
     </script>
 </body>
