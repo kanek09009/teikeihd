@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>提携事務所HD - Dark Mode</title>
+    <title>提携事務所HD - Modernized Logo</title>
     <style>
-        /* --- CSS: Discord風ダークスタイル設定 --- */
+        /* --- CSS: Discord風ダークスタイル + モダンロゴ用 --- */
         :root {
-            /* Discordのカラーパレットをベースに設定 */
-            --bg-main: #313338;       /* メイン背景 (Discord背景) */
-            --bg-secondary: #2b2d31;  /* サイドバー・ヘッダー背景 */
-            --bg-tertiary: #1e1f22;   /* さらに深い背景 */
-            --text-normal: #dbdee1;   /* 標準テキスト */
-            --text-muted: #949ba4;    /* 補助テキスト */
-            --accent-color: #5865f2;  /* Discordブルー */
-            --card-bg: #383a40;       /* カード背景 */
+            --bg-main: #313338;
+            --bg-secondary: #2b2d31;
+            --bg-tertiary: #1e1f22;
+            --text-normal: #dbdee1;
+            --text-muted: #949ba4;
+            --accent-color: #5865f2; /* Discordブルー */
+            --accent-hover: #4752c4;
+            --card-bg: #383a40;
             --white: #ffffff;
             --shadow: 0 4px 15px rgba(0,0,0,0.3);
             --transition: all 0.25s ease;
@@ -31,6 +31,7 @@
             line-height: 1.6;
             color: var(--text-normal);
             background-color: var(--bg-main);
+            overflow-x: hidden;
         }
 
         .container {
@@ -39,20 +40,41 @@
             padding: 0 20px;
         }
 
-        /* メインビジュアルエリア */
+        /* メインロゴエリア - モダン統合 */
         .main-visual {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 80px 20px; /* 余白を広げてモダンに */
             background-color: var(--bg-tertiary);
+            position: relative;
+        }
+
+        /* ロゴ画像のマスク処理とモダン化 */
+        .logo-mask {
+            display: inline-block;
+            /* 正方形に近い形でクリップ (ロゴの形に合わせて調整可) */
+            width: 300px;
+            height: 150px;
+            /* 角丸 (モダンな雰囲気のコア) */
+            border-radius: 20px;
+            /* 内側の影で統合感を出す */
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), var(--shadow);
+            overflow: hidden; /* マスクの外側を隠す */
+            background-color: #000; /* ロゴの背景を黒に統一 */
+            transition: var(--transition);
         }
 
         .main-logo {
-            width: 33%;
-            min-width: 250px;
-            max-width: 500px;
-            height: auto;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* ロゴを浮かせる */
-            transition: var(--transition);
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* アスペクト比を保ってマスク内に収める */
+            /* 必要に応じて明度や彩度を調整 (目が疲れないように) */
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        /* ロゴホバー時のエフェクト */
+        .logo-mask:hover {
+            transform: scale(1.02);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 20px rgba(88, 101, 242, 0.4);
         }
 
         /* ヘッダー・ナビゲーション */
@@ -131,64 +153,95 @@
             color: var(--text-muted);
         }
 
-        /* カードデザイン */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        /* ギミックエリア */
+        .gimmick-section {
+            text-align: center;
+            padding: 40px 0;
         }
 
-        .card {
+        .gimmick-container {
+            position: relative;
             background: var(--card-bg);
             border-radius: 12px;
-            overflow: hidden;
+            padding: 50px;
             box-shadow: var(--shadow);
-            transition: var(--transition);
             border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            min-height: 200px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            background: #404249; /* 少し明るくする */
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            opacity: 0.9; /* 目に優しい明るさ調整 */
-        }
-
-        .card-body {
-            padding: 25px;
-        }
-
-        .card-body h3 {
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-
-        .card-body p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* ボタン */
-        .btn {
+        .bored-btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 24px;
+            padding: 15px 35px;
             background-color: var(--accent-color);
             color: var(--white);
             text-decoration: none;
-            border-radius: 4px; /* Discord風の少し角ばった丸み */
-            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
             transition: var(--transition);
+            z-index: 10;
         }
 
-        .btn:hover {
-            background-color: #4752c4;
-            box-shadow: 0 4px 10px rgba(88, 101, 242, 0.3);
+        .bored-btn:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        /* ギミック要素（動的） */
+        .gimmick-element {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        /* コンフェッティ（紙吹雪） */
+        .confetti {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            opacity: 0.8;
+            border-radius: 20%;
+            animation: fall 3s ease-out forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(300px) rotate(720deg); opacity: 0; }
+        }
+
+        /* バウンドボール */
+        .bouncing-ball {
+            width: 30px;
+            height: 30px;
+            background-color: #ff4757;
+            border-radius: 50%;
+            animation: bounce 1s infinite alternate cubic-bezier(0.5, 0.05, 1, 0.5);
+        }
+
+        @keyframes bounce {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 150px); }
+        }
+        
+        /* シークレットメッセージ */
+        .secret-message {
+            color: #2ed573;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeSecret 2s forwards;
+        }
+
+        @keyframes fadeSecret {
+            0% { opacity: 0; transform: scale(0.5); }
+            20% { opacity: 1; transform: scale(1.1); }
+            80% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: translateY(-20px); }
         }
 
         /* メッセージエリア */
@@ -222,40 +275,20 @@
 
         /* レスポンシブ設定 */
         @media screen and (max-width: 768px) {
-            .main-logo {
-                width: 60%;
-            }
-
+            .logo-mask { width: 80%; height: auto; aspect-ratio: 2/1; }
+            .main-visual { padding: 40px 10px; }
             .nav-links {
                 position: fixed;
-                right: 0px;
-                height: 100vh;
-                top: 0;
+                right: 0px; height: 100vh; top: 0;
                 background-color: var(--bg-tertiary);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                width: 70%;
-                transform: translateX(100%);
+                flex-direction: column; align-items: center; justify-content: center;
+                width: 70%; transform: translateX(100%);
                 transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 box-shadow: -10px 0 20px rgba(0,0,0,0.5);
             }
-
-            .nav-links li {
-                margin: 20px 0;
-            }
-
-            .burger {
-                display: block;
-                position: absolute;
-                right: 20px;
-                z-index: 1001;
-            }
-
-            .nav-active {
-                transform: translateX(0%);
-            }
-
+            .nav-links li { margin: 20px 0; }
+            .burger { display: block; position: absolute; right: 20px; z-index: 1001; }
+            .nav-active { transform: translateX(0%); }
             .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
             .toggle .line2 { opacity: 0; }
             .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
@@ -265,7 +298,9 @@
 <body>
 
     <div class="main-visual">
-        <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" alt="提携事務所HD ロゴ" class="main-logo">
+        <div class="logo-mask">
+            <img src="https://i.gyazo.com/0b047df81389714e6b5cef23231b7fcc.png" alt="提携事務所HD ロゴ" class="main-logo">
+        </div>
     </div>
 
     <header>
@@ -293,19 +328,14 @@
                 <p>よりスマートに、より効率的なネットワークを構築します。</p>
             </section>
 
-            <section class="card-grid">
-                <div class="card">
-                    <img src="https://niceillust.com/wp-content/uploads/2022/04/nyugakuomedeto_001-2-1024x720.png" alt="Content">
-                    <div class="card-body">
-                        <h3>暇人用コンテンツ</h3>
-                        <p>退屈な時間をクリエイティブな刺激に変える、選りすぐりの情報を掲載しています。</p>
-                        <a href="#" class="btn">閲覧する</a>
+            <section class="gimmick-section">
+                <div class="gimmick-container" id="gimmickArea">
+                    <button class="bored-btn" id="boredBtn">暇人用</button>
                     </div>
-                </div>
             </section>
 
             <section class="message-section">
-                <p class="accent-quote">~~ i think that is paper-company ;< ~~</p>
+                <del class="accent-quote">~~ i think that is a paper-company ;< ~~</del>
                 <p class="thanks-msg">Thanks for coming to this site!</p>
             </section>
         </div>
@@ -318,7 +348,7 @@
     </footer>
 
     <script>
-        // スマホメニューの制御
+        // --- JS: スマホメニューの制御 ---
         const navSlide = () => {
             const burger = document.querySelector('.burger');
             const nav = document.querySelector('.nav-links');
@@ -328,7 +358,6 @@
                 burger.classList.toggle('toggle');
             });
 
-            // メニュー外タップで閉じる処理（UX向上）
             document.addEventListener('click', (e) => {
                 if (!nav.contains(e.target) && !burger.contains(e.target) && nav.classList.contains('nav-active')) {
                     nav.classList.remove('nav-active');
@@ -336,8 +365,49 @@
                 }
             });
         }
-
         navSlide();
+
+        // --- JS: 暇人用ギミックの制御 ---
+        const gimmickArea = document.getElementById('gimmickArea');
+        const boredBtn = document.getElementById('boredBtn');
+
+        const gimmicks = [
+            // 1. 紙吹雪 (Confetti)
+            () => {
+                for (let i = 0; i < 30; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('gimmick-element', 'confetti');
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`; // ランダム色
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    gimmickArea.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }
+            },
+            // 2. バウンドボール
+            () => {
+                const ball = document.createElement('div');
+                ball.classList.add('gimmick-element', 'bouncing-ball');
+                ball.style.left = (Math.random() * 50 + 25) + '%';
+                gimmickArea.appendChild(ball);
+                setTimeout(() => ball.remove(), 2000);
+            },
+            // 3. シークレットメッセージ
+            () => {
+                const messages = ["お疲れ様です！", "暇ですねぇ...", "クリックありがと", "★大当たり★"];
+                const msgEl = document.createElement('div');
+                msgEl.classList.add('gimmick-element', 'secret-message');
+                msgEl.textContent = messages[Math.floor(Math.random() * messages.length)];
+                gimmickArea.appendChild(msgEl);
+                setTimeout(() => msgEl.remove(), 2000);
+            }
+        ];
+
+        boredBtn.addEventListener('click', () => {
+            // ランダムにギミックを選択して実行
+            const randomIndex = Math.floor(Math.random() * gimmicks.length);
+            gimmicks[randomIndex]();
+        });
     </script>
 </body>
 </html>
