@@ -26,6 +26,7 @@
             background-color: var(--bg-main);
             color: var(--text-normal);
             overflow-x: hidden;
+            position: relative;
         }
 
         /* ロゴセクション */
@@ -47,7 +48,7 @@
 
         .main-logo { width: 100%; height: 100%; object-fit: contain; }
 
-        /* --- 超巨大・大胆アニメーションキャッチコピー --- */
+        /* --- キャッチコピー --- */
         .hero-banner {
             text-align: center;
             padding: 60px 0;
@@ -71,26 +72,22 @@
 
         .catch-line {
             display: block;
-            font-size: 4.5rem; /* 極大サイズ */
+            font-size: 4.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            /* ネオン・グラデーションカラー */
             background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-blue));
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            /* 強い光彩 */
             filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
             white-space: nowrap;
             animation: shineText 3s linear infinite;
         }
 
-        /* テキストのグラデーションが流れるアニメーション */
         @keyframes shineText {
             to { background-position: 200% center; }
         }
 
-        /* 強烈なスライドアニメーション */
         .slide-left {
             animation: bounceInLeft 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, pulseGlow 2s infinite alternate 1.5s;
         }
@@ -111,13 +108,12 @@
             100% { transform: translateX(0) scale(1); opacity: 1; }
         }
 
-        /* 脈動する光のエフェクト */
         @keyframes pulseGlow {
             from { filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4)); }
             to { filter: drop-shadow(0 0 30px rgba(157, 80, 187, 0.8)) scale(1.05); }
         }
 
-        /* --- ナビゲーション等 (前回同様) --- */
+        /* --- ナビゲーション --- */
         header { background-color: var(--bg-secondary); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
         .header-inner { display: flex; justify-content: center; align-items: center; height: 70px; }
         .nav-links { display: flex; list-style: none; gap: 40px; }
@@ -135,7 +131,29 @@
 
         footer { background: var(--bg-tertiary); padding: 50px 0; text-align: center; color: var(--text-muted); }
 
-        /* スマホ対応 */
+        /* --- キャラクター横移動ギミックのCSS --- */
+        .moving-character {
+            position: fixed;
+            bottom: 10%;
+            right: -200px; /* 画面外からスタート */
+            width: 150px;
+            height: 150px;
+            z-index: 9999;
+            pointer-events: none; /* クリックを邪魔しない */
+            animation: moveAcross 2s linear forwards;
+        }
+
+        @keyframes moveAcross {
+            0% {
+                right: -200px;
+                transform: rotate(0deg);
+            }
+            100% {
+                right: calc(100% + 200px); /* 画面左端まで突き抜ける */
+                transform: rotate(-720deg); /* 2回転させる */
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .catch-line { font-size: 2.2rem; }
             .hero-banner h1 { font-size: 2rem; }
@@ -186,8 +204,27 @@
     </footer>
 
     <script>
-        document.getElementById('boredBtn').addEventListener('click', function() {
-            alert('Welcome to the Future.');
+        // キャラクター横移動ギミックのJavaScript
+        const boredBtn = document.getElementById('boredBtn');
+        const characterImgUrl = "https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png"; // キャラクターに使用する画像
+
+        boredBtn.addEventListener('click', function() {
+            // 新しい画像要素を作成
+            const character = document.createElement('img');
+            character.src = characterImgUrl;
+            character.className = 'moving-character';
+            
+            // ランダムな高さに出現させる（下から5%〜40%の間）
+            const randomBottom = Math.floor(Math.random() * 35) + 5;
+            character.style.bottom = randomBottom + '%';
+
+            // 画面に追加
+            document.body.appendChild(character);
+
+            // アニメーション終了後に要素を削除
+            character.addEventListener('animationend', function() {
+                character.remove();
+            });
         });
     </script>
 </body>
