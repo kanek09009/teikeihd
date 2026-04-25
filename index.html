@@ -37,14 +37,20 @@
 
         .logo-mask {
             display: inline-block;
-            height: 320px;
+            height: 320px; /* PC用サイズ */
+            max-width: 100%; /* 横幅がはみ出さないように */
             border-radius: 30px;
             box-shadow: 0 0 30px rgba(0,0,0,0.6);
             overflow: hidden;
             background-color: #000;
         }
 
-        .main-logo { width: 100%; height: 100%; object-fit: contain; }
+        .main-logo { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            display: block;
+        }
 
         /* ヘッダー */
         header { background-color: var(--bg-secondary); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
@@ -103,7 +109,23 @@
 
         footer { background: var(--bg-tertiary); padding: 40px 0; text-align: center; color: var(--text-muted); }
 
-        @media screen and (max-width: 768px) { .catch-line { font-size: 2.2rem; } }
+        /* --- スマホ用修正 --- */
+        @media screen and (max-width: 768px) { 
+            .catch-line { font-size: 2.2rem; } 
+            
+            .logo-mask {
+                height: auto; /* 高さを自動にする */
+                max-height: 200px; /* 縦長になりすぎない上限 */
+                width: 90%; /* 画面幅に合わせる */
+                border-radius: 15px;
+            }
+            .main-logo {
+                height: auto; /* 画像の比率を維持 */
+            }
+            
+            .hero-banner h1 { font-size: 2rem; }
+            .bored-btn { padding: 20px 40px; font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -148,28 +170,25 @@
         const hertaBtn = document.getElementById('hertaBtn');
         const characterImg = "https://i.gyazo.com/06d4fae8844fafb7b8b0b21057ff7be4.png";
         
-        // 音声ファイルの準備 (GitHub上の公開ソースを利用)
+        // 音声ファイルの準備
         const audioPaths = [
             "https://raw.githubusercontent.com/Duiqt/herta_kuru/main/public/audio/kuruto.mp3",
-            "https://raw.githubusercontent.com/Duiqt/herta_kuru/main/public/audio/kuru1.mp3"
+            "https://raw.githubusercontent.com/Duiqt/herta_kuru/main/public/audio/kuru1.mp3",
+            "se/01.mp3" // 指定されたパス
         ];
 
         hertaBtn.addEventListener('click', () => {
-            // 1. キャラクターを生成
             const char = document.createElement('img');
             char.src = characterImg;
             char.className = 'herta-char';
             char.style.bottom = (Math.random() * 30 + 5) + '%';
             document.body.appendChild(char);
 
-            // 2. 音声をランダムに再生
-            const randomAudio = new Audio(audioPaths[Math.floor(Math.random() * audioPaths.length)]);
-            randomAudio.play();
-          const audioPaths = [
-    se/01.mp3
-];
+            // 有効な音声をランダムに再生
+            const randomPath = audioPaths[Math.floor(Math.random() * audioPaths.length)];
+            const audio = new Audio(randomPath);
+            audio.play().catch(e => console.log("Audio play blocked or failed"));
 
-            // 3. アニメーション終了後に削除
             char.addEventListener('animationend', () => char.remove());
         });
     </script>
