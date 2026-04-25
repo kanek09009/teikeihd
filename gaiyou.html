@@ -15,7 +15,7 @@
             --accent-color: #5865f2;
             --white: #ffffff;
             --card-text: #2e3338;
-            --shadow: 0 4px 15px rgba(0,0,0,0.3);
+            --shadow: 0 4px 15px rgba(0,0,0,0.5);
             --transition: all 0.25s ease;
         }
 
@@ -26,7 +26,7 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
             line-height: 1.6;
             color: var(--text-normal);
             background-color: var(--bg-main);
@@ -38,27 +38,29 @@
             padding: 0 20px;
         }
 
-        /* ロゴエリア */
+        /* ロゴエリア：レスポンシブ対応 */
         .main-visual {
             text-align: center;
-            padding: 50px 20px;
-            background-color: var(--bg-tertiary);
+            padding: 60px 20px;
+            background: radial-gradient(circle at center, #232529 0%, #1e1f22 100%);
         }
 
         .logo-mask {
             display: inline-block;
-            width: 400px;
-            height: 200px;
-            border-radius: 10px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), var(--shadow);
+            height: 300px; /* PCでのデフォルト高さ */
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
             overflow: hidden;
             background-color: #000;
+            transition: var(--transition);
         }
 
         .main-logo {
             width: 100%;
             height: 100%;
-            filter: brightness(0.9);
+            object-fit: contain;
+            display: block;
         }
 
         /* ヘッダー */
@@ -74,7 +76,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 60px;
+            height: 70px;
         }
 
         .nav-links {
@@ -105,25 +107,26 @@
         }
 
         .page-title h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--white);
+            letter-spacing: 2px;
         }
 
         /* インフォカード */
         .info-card {
             background-color: var(--white);
             color: var(--card-text);
-            border-radius: 15px;
-            padding: 40px;
+            border-radius: 20px;
+            padding: 45px;
             margin-bottom: 40px;
             box-shadow: var(--shadow);
         }
 
         .info-card h2 {
-            border-bottom: 2px solid var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
             display: inline-block;
             margin-bottom: 30px;
-            font-size: 3rem;
+            font-size: 2rem;
             color: #1e1f22;
         }
 
@@ -144,21 +147,18 @@
             border-bottom: 1px solid #f0f1f2;
         }
 
-        /* --- VIP: 代表取締役社長 特別スタイル --- */
+        /* VIPスタイル */
         .vip-item {
             padding: 35px 20px;
             border-radius: 15px;
             border: none;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             position: relative;
             overflow: hidden;
-            /* 高級感のあるゴールドグラデーションアニメーション */
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
             background: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             background-size: 400% 400%;
             animation: gradientBG 10s ease infinite;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         @keyframes gradientBG {
@@ -168,56 +168,31 @@
         }
 
         .vip-item .rank {
-            color: #7d5d00; /* 高級感のある濃い茶/金 */
+            color: #7d5d00;
             font-size: 1.2rem;
             letter-spacing: 0.2em;
-            font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", serif;
         }
 
         .vip-item .name {
-            font-size: 2.2rem; /* 他より大きく */
+            font-size: 2.5rem;
             color: #1a1a1a;
-            font-weight: 700;
-            font-family: "Georgia", "YuMincho", "Hiragino Mincho ProN", serif;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 900;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
         }
 
-        /* キラキラ粒子エフェクト（擬似要素） */
-        .vip-item::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.3;
-            animation: shine 20s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes shine {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* 通常メンバー用スタイル */
+        /* 通常メンバー */
         .rank {
             font-weight: bold;
             color: var(--accent-color);
             display: block;
             font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .name {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #2e3338;
-            font-weight: 600;
-            display: block;
+            font-weight: 700;
         }
 
         .wall {
@@ -225,19 +200,9 @@
             text-align: center;
             color: #b9bbbe;
             font-size: 1rem;
-            padding: 40px 0;
-            letter-spacing: 0.3em;
+            padding: 45px 0;
+            letter-spacing: 0.4em;
             font-weight: bold;
-        }
-
-        .wall::before, .wall::after {
-            content: "";
-            display: inline-block;
-            width: 60px;
-            height: 2px;
-            background: #e3e5e8;
-            vertical-align: middle;
-            margin: 0 15px;
         }
 
         .note {
@@ -252,23 +217,31 @@
             color: var(--text-muted);
             text-align: center;
             padding: 50px 0;
-            margin-top: 60px;
         }
 
         .burger { display: none; cursor: pointer; }
         .burger div { width: 25px; height: 3px; background-color: var(--text-normal); margin: 5px; }
 
+        /* スマホ対応の強化 */
         @media screen and (max-width: 768px) {
+            .logo-mask {
+                height: auto;
+                max-height: 200px;
+                width: 90%;
+            }
+            .main-visual { padding: 40px 10px; }
+            .page-title h1 { font-size: 2rem; }
+            .info-card { padding: 25px; }
+            .info-card h2 { font-size: 1.6rem; }
+            .vip-item .name { font-size: 1.8rem; }
             .nav-links {
                 position: fixed; right: 0; height: 100vh; top: 0;
-                background-color: var(--bg-tertiary);
+                background-color: var(--bg-tertiary); width: 70%;
                 flex-direction: column; align-items: center; justify-content: center;
-                width: 70%; transform: translateX(100%);
-                transition: transform 0.4s ease;
+                transform: translateX(100%); transition: 0.4s ease;
             }
             .burger { display: block; position: absolute; right: 20px; z-index: 1001; }
             .nav-active { transform: translateX(0%); }
-            .vip-item .name { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -276,7 +249,7 @@
 
     <div class="main-visual">
         <div class="logo-mask">
-            <img src="https://i.gyazo.com/f8dc6fb739859b4eebdbbcffb82cc91d.png" alt="ロゴ" class="main-logo">
+            <img src="https://i.gyazo.com/80e783275b98c31b9195a5d5c547d2dd.jpg" alt="ロゴ" class="main-logo">
         </div>
     </div>
 
@@ -289,9 +262,7 @@
                     <li><a href="jiji.html">時事・予定</a></li>
                 </ul>
                 <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                    <div class="line1"></div><div class="line2"></div><div class="line3"></div>
                 </div>
             </nav>
         </div>
@@ -305,7 +276,7 @@
 
             <section class="info-card">
                 <h2>事務方針</h2>
-                <div style="line-height: 1.8; color: #4f5660; font-size: 1.1rem;">
+                <div style="line-height: 1.9; color: #4f5660; font-size: 1.15rem;">
                     私たちは、複数企業間での企画や、単独企業では困難な提携業務・アライアンスの確立を専門に支援いたします。<br>
                     また、プログラミング（ゲーム開発、WEB制作支援）、イラスト作成など、多岐にわたるクリエイティブ分野でのサポートも展開しております。そしてSDGsをはじめとした環境保全活動の促進を理念に活動しています。
                 </div>
@@ -329,10 +300,11 @@
                     <div class="member-item"><span class="rank">係長</span><span class="name">すいかとめろん</span></div>
                     <div class="member-item"><span class="rank">主任</span><span class="name">HDcharacter</span></div>
                     
-                    
                     <div class="member-item"><span class="rank">一般社員</span><span class="name">募集中! (現在:0人)</span></div>
-                            <div class="wall">OVER THE WALL</div>
-                  <div class="member-item">
+                    
+                    <div class="wall">--- OVER THE WALL ---</div>
+                    
+                    <div class="member-item">
                         <span class="rank">バイト</span>
                         <span class="name">KUDO / REOTO</span>
                     </div>
@@ -345,7 +317,7 @@
 
     <footer>
         <div class="container">
-            <h2 style="font-size: 1.2rem; color: var(--white);">Thanks for visiting this site!</h2>
+            <h2 style="font-size: 1.2rem; color: var(--white); margin-bottom: 10px;">Thanks for visiting this site!</h2>
             <p>written by かねく</p>
         </div>
     </footer>
